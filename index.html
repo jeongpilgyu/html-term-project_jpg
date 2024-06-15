@@ -15,7 +15,6 @@
       padding: 0;
     }
 
-
     body {
       display: flex;
       flex-direction: column;
@@ -58,15 +57,13 @@
     .product-price {
       font-weight: bold;
       color: #333;
-    }
-
-    .product-rating {
-      color: #ffcc00;
+      font-size: 1.5rem;
+      margin-top: 1rem;
     }
 
     .product-buttons {
       display: flex;
-      justify-content: center;
+      justify-content: start;
       gap: 0.5rem;
       margin-top: 0.5rem;
     }
@@ -131,6 +128,30 @@
     footer {
       padding: 1rem 0;
     }
+
+    .product-rating {
+      color: yellow;
+    }
+
+    .recommend-product-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .recommend-product-buttons button {
+      background-color: #4299e1;
+      color: white;
+      border: none;
+      border-radius: 0.375rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+
+    .recommend-product-buttons button:hover {
+      background-color: #2b6cb0;
+    }
   </style>
 </head>
 
@@ -146,17 +167,11 @@
           <li><a href="#" class="hover:bg-gray-300">Products</a></li>
           <li><a href="#" class="hover:bg-gray-300">Contact</a></li>
         </ul>
-        <!-- 로그인  -->
+        <!-- 로그인 폼 -->
         <form class="flex space-x-2 items-center bg-gray-700 p-2 rounded">
-          <input
-            class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="username" type="text" placeholder="아이디" style="max-width: 100px;">
-          <input
-            class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="password" type="password" placeholder="비밀번호" style="max-width: 100px;">
-          <button onclick="login()"
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline"
-            type="button">
+          <input class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="아이디" style="max-width: 100px;">
+          <input class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="비밀번호" style="max-width: 100px;">
+          <button onclick="login()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline" type="button">
             로그인
             <script>
               function login() {
@@ -170,29 +185,42 @@
   </header>
 
   <main class="container mx-auto py-8">
-    <section class="text-center">
-      <h2 class="text-3xl font-bold pb-4">Wireless earbuds</h2>
-      <p class="text-gray-600">경이로운 음질과 편안한 착용감을 제공하는 최신 무선 이어폰을 다양하게 만나보세요. 어디서나 자유롭게 음악을 즐길 수 있습니다.</p>
-    </section>
     <section class="flex flex-wrap justify-between mt-8">
       <div class="w-full md:w-1/2 p-4">
-        <img src="car.jpg" alt="Wireless Earbuds" class="w-full rounded-md">
+        <img src="sony.jpeg" alt="Sony WF 1000xm5" class="w-full rounded-md">
       </div>
       <div class="w-full md:w-1/2 p-4 product-description">
-        <h3 class="text-2xl font-bold pb-2">제품 설명</h3>
-        <p class="text-gray-600 mb-4">최신 기술이 적용된 무선 이어폰으로, 경이로운 음질과 편안한 착용감을 제공합니다. 긴 배터리 수명과 빠른 충전 기능을 자랑하며, 일상 생활의 모든
-          순간에 최적화된 성능을 발휘합니다.</p>
-        <ul class="list-disc list-inside text-gray-600">
+        <h3 class="text-2xl font-bold pb-2">Sony WF 1000xm5</h3><br>
+        <p class="text-gray-600 mb-4">최신 기술이 적용된 무선 이어폰으로, 경이로운 음질과 편안한 착용감을 제공합니다. 긴 배터리 수명과 빠른 충전 기능을 자랑하며, 일상 생활의 모든 순간에 최적화된 성능을 발휘합니다.</p>
+        <ul class="list-disc list-inside text-gray-600 mb-4">
           <li>최신 블루투스 5.0 기술</li>
           <li>최대 20시간의 배터리 수명</li>
           <li>고속 충전 기능</li>
           <li>IPX7 방수 등급</li>
           <li>액티브 노이즈 캔슬링</li>
         </ul>
+        <div class="flex items-center mb-4">
+          <label for="color" class="mr-2">색상:</label>
+          <select id="color" class="border rounded py-1 px-2 mr-4">
+            <option>화이트</option>
+            <option>블랙</option>
+          </select>
+          <label for="size" class="mr-2">이어팁사이즈:</label>
+          <select id="size" class="border rounded py-1 px-2">
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
+          </select>
+        </div>
+        <div class="product-price">₩ 199,000</div>
+        <div class="product-buttons">
+          <button onclick="buyNow()">구매하기</button>
+          <button onclick="addToCart(event)">장바구니 추가</button>
+          <button onclick="addToWishlist(event)">찜하기</button>
+        </div>
       </div>
     </section>
-    <button onclick="itemlist()" class="bg-blue-500 text-white border-2 border-blue-500 p-2 mt-4 hover:bg-blue-700">+ 제품
-      보러가기</button>
+
     <section class="mt-8">
       <h3 class="text-2xl font-bold pb-4">추천 상품</h3>
       <div class="flex flex-wrap -mx-2">
@@ -205,7 +233,7 @@
             <div class="product-rating">
               ★★★★☆
             </div>
-            <div class="product-buttons">
+            <div class="recommend-product-buttons">
               <button onclick="addToCart(event)">장바구니 추가</button>
               <button onclick="addToWishlist(event)">찜하기</button>
             </div>
@@ -220,7 +248,7 @@
             <div class="product-rating">
               ★★★☆☆
             </div>
-            <div class="product-buttons">
+            <div class="recommend-product-buttons">
               <button onclick="addToCart(event)">장바구니 추가</button>
               <button onclick="addToWishlist(event)">찜하기</button>
             </div>
@@ -235,7 +263,7 @@
             <div class="product-rating">
               ★★★★☆
             </div>
-            <div class="product-buttons">
+            <div class="recommend-product-buttons">
               <button onclick="addToCart(event)">장바구니 추가</button>
               <button onclick="addToWishlist(event)">찜하기</button>
             </div>
@@ -245,7 +273,7 @@
     </section>
   </main>
 
-  <footer class="bg-gray-800 text-white py-0.5"> 
+  <footer class="bg-gray-800 text-white py-0.5">
     <div class="container mx-auto text-center">
       <div class="category-menu">
         <a href="#">배송 조회</a>
@@ -259,14 +287,13 @@
     </div>
   </footer>
 
-
   <button class="chat-button" onclick="chat()">
     <i class="fas fa-comments"></i>
   </button>
 
   <script>
-    function itemlist() {
-      alert("제품이 준비중입니다.");
+    function buyNow() {
+      alert("구매 페이지로 이동합니다.");
     }
     function chat() {
       alert("문의하기 기능이 준비중입니다.");
